@@ -7,6 +7,9 @@ import java.io.InputStreamReader;
 
 public class OSDetector {
 
+    private static final String ARCH64 = "aarch64";
+    private static final String AMD64  = "amd64";
+
     public static OS getOS() {
         String osName = System.getProperty("os.name").toLowerCase();
 
@@ -75,30 +78,13 @@ public class OSDetector {
     }
 
     private static Architecture getMacOSXArchitecture() {
-        BufferedReader input = null;
-        try {
-            String line;
-            Process proc = Runtime.getRuntime().exec("sysctl hw");
-            input = new BufferedReader(new InputStreamReader(proc.getInputStream()));
-            while ((line = input.readLine()) != null) {
-                if (line.length() > 0) {
-                    if ((line.contains("cpu64bit_capable")) && (line.trim().endsWith("1"))) {
-                        return Architecture.x86_64;
-                    }
-                }
-            }
-        } catch (Exception e) {
-            throw new OsDetectionException(e);
-        } finally {
-            try {
-                if (input != null) {
-                    input.close();
-                }
-            } catch (Exception ignored) {
-                // ignore
-            }
+        String arch = System.getProperty("os.arch").toLowerCase();
+        if(ARCH64.equals(arch)) {
+            return Architecture.ARM64;
+        } else if (AMD64.equals(arch)) {
+            return Architecture.x86_64;
+        }else {
+            return Architecture.x86;
         }
-
-        return Architecture.x86;
     }
 }

@@ -1,10 +1,6 @@
 embedded-redis
 ==============
 
-[![Build Status](https://ci.appveyor.com/api/projects/status/github/kstyrc/embedded-redis?branch=master&svg=true)](https://ci.appveyor.com/project/kstyrc/embedded-redis) Windows
-
-[![Build Status](https://travis-ci.org/kstyrc/embedded-redis.png?branch=master)](https://travis-ci.org/kstyrc/embedded-redis) Linux
-
 Redis embedded server for Java integration testing
 
 Maven dependency
@@ -16,22 +12,6 @@ Maven Central:
   <groupId>com.github.kstyrc</groupId>
   <artifactId>embedded-redis</artifactId>
   <version>0.6</version>
-</dependency>
-```
-
-Previous releases (before 0.6):
-```xml
-<repository>
-  <id>clojars.org</id>
-  <url>http://clojars.org/repo</url>
-</repository>
-
-...
-
-<dependency>
-  <groupId>redis.embedded</groupId>
-  <artifactId>embedded-redis</artifactId>
-  <version>0.5</version>
 </dependency>
 ```
 
@@ -175,6 +155,7 @@ Contributors
  * Artem Orobets ([@enisher](http://github.com/enisher))
  * Sean Simonsen ([@SeanSimonsen](http://github.com/SeanSimonsen))
  * Rob Winch ([@rwinch](http://github.com/rwinch))
+ * Víctor Santoja ([@vjsantojaca](http://github.com/vjsantojaca))
 
 
 Changelog
